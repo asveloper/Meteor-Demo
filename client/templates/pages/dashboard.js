@@ -18,9 +18,12 @@ Template.PagesDashboard.helpers({
     }
   },
   level: function(){
-    var userLevel = Meteor.users.find({profile:{$elemMatch: {referrerCode: Meteor.user().profile.referralCode}}}).count();
+    if(Meteor.user()){
+      var referralCode = Meteor.user().profile.referralCode;
+    }
+    var userLevel = Meteor.users.find({"profile.referrerCode": referralCode}).count();
 
-    return userLevel == 0 ? "1" : userLevel;
+    return userLevel == 0 ? 1 : userLevel;
   }
 });
 
@@ -37,9 +40,10 @@ Template.PagesDashboard.rendered = function(){
     if(Session.get("referrerCode")){
       Meteor.users.update({_id: Meteor.userId()}, {
         $set: {
-          referrerCode: Session.get("referrerCode")
+          "profile.referrerCode": Session.get("referrerCode")
         }
       });
+      Session.set("referrerCode", undefined);
     }
 
 }
