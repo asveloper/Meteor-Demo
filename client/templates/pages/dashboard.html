@@ -1,8 +1,26 @@
 <template name="PagesDashboard">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-6">
         <h1>Dashboard</h1>
+      </div>
+      <div class="col-xs-6">
+        <button id="logout" class="btn btn-default pull-right margin-top">Logout</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 text-center">
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <input type="text" disabled="true" value="{{referralUrl}}" class="text-field">
+      </div>
+    </div><br>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="share-code">{{> shareit shareData}}</div>
       </div>
     </div>
   </div>
