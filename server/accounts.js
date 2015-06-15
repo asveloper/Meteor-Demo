@@ -3,7 +3,8 @@ Accounts.onCreateUser(function(options, user) {
 
   var referralCode = new Meteor.Collection.ObjectID()._str;
 
-  user.referralCode = referralCode;
+  user.profile.referralCode = referralCode;
+  user.profile.referrerCode = "";
 
   return user;
 });
