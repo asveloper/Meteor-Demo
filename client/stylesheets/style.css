@@ -5,3 +5,14 @@
 .margin-top {
   margin-top: 10px;
 }
+
+.text-field {
+  width: 40%;
+  height: 40px;
+  line-height: 40px;
+  margin-left: 30%;
+}
+
+.share-code {
+  margin-left: 40%;
+}
