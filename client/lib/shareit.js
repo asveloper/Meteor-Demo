@@ -5,9 +5,9 @@ ShareIt.configure({
                         // Whether to show the Twitter button
   useGoogle: false,      // boolean (default: true)
                         // Whether to show the Google+ button
-  classes: "btn", // string (default: 'large btn')
+  classes: "large btn", // string (default: 'large btn')
                         // The classes that will be placed on the sharing buttons, bootstrap by default.
-  iconOnly: true,      // boolean (default: false)
+  iconOnly: false,      // boolean (default: false)
                         // Don't put text on the sharing buttons
   applyColors: true     // boolean (default: true)
                           // apply classes to inherit each social networks background color
