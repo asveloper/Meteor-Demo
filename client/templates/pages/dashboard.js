@@ -5,7 +5,7 @@ Template.PagesDashboard.helpers({
     if(Meteor.user()){
       referralCode = Meteor.user().profile.referralCode;
     }
-    return Router.current().url.replace("dashboard", "?ref="+referralCode);
+    return Meteor.absoluteUrl().concat("?ref="+referralCode);
   },
   shareData: function(){
     var referralCode = "";
@@ -14,17 +14,13 @@ Template.PagesDashboard.helpers({
       referralCode = Meteor.user().profile.referralCode;
     }
     return {
-      url: Router.current().url.replace("dashboard", "?ref="+referralCode)
+      url: Meteor.absoluteUrl().concat("?ref="+referralCode)
     }
   },
   level: function(){
-    var referralCode = "";
+    var userLevel = Meteor.users.find({profile:{$elemMatch: {referrerCode: Meteor.user().profile.referralCode}}}).count();
 
-    if(Meteor.user()){
-      referralCode = Meteor.user().profile.referralCode;
-    }
-
-    return ;
+    return userLevel == 0 ? "1" : userLevel;
   }
 });
 
