@@ -16,21 +16,6 @@ Template.PagesDashboard.helpers({
     return {
       url: Meteor.absoluteUrl().concat("?ref="+referralCode)
     }
-  },
-  level: function(){
-    if(Meteor.user()){
-      var referralCode = Meteor.user().profile.referralCode;
-
-      Meteor.call("usersCount", referralCode, function(error, userLevel){
-        if(error){
-          console.log(error);
-        }else{
-          Session.set("userLevel", userLevel == 0  ? 1 : userLevel + 1);
-        }
-      });
-    }
-
-    return Session.get("userLevel");
   }
 });
 
