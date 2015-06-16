@@ -23,7 +23,7 @@ Template.PagesDashboard.helpers({
     }
     var userLevel = Meteor.users.find({"profile.referrerCode": referralCode}).count();
 
-    return userLevel == 0 ? 1 : userLevel;
+    return userLevel == 0  || userLevel == 1 ? 1 : userLevel;
   }
 });
 
