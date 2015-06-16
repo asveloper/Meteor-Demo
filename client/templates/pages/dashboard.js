@@ -16,6 +16,9 @@ Template.PagesDashboard.helpers({
     return {
       url: Meteor.absoluteUrl().concat("?ref="+referralCode)
     }
+  },
+  userLevel: function(){
+    return Counts.get('referral') + 1;
   }
 });
 

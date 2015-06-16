@@ -1,5 +1,4 @@
-Meteor.publish("usersCount", function(){
+Meteor.publish("referralCount", function(){
     var referralCode = Meteor.users.findOne({_id: this.userId}).profile.referralCode;
-
-    return Meteor.users.find({"profile.referrerCode": referralCode});
+    Counts.publish(this, 'referralCount', Meteor.users.find({"profile.referrerCode": referralCode}));
 });
