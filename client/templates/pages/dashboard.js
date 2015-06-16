@@ -20,10 +20,17 @@ Template.PagesDashboard.helpers({
   level: function(){
     if(Meteor.user()){
       var referralCode = Meteor.user().profile.referralCode;
-    }
-    var userLevel = Meteor.users.find({"profile.referrerCode": referralCode}).count();
 
-    return userLevel == 0  ? 1 : userLevel + 1;
+      Meteor.call("usersCount", referralCode, function(error, userLevel){
+        if(error){
+          console.log(error);
+        }else{
+          Session.set("userLevel", userLevel == 0  ? 1 : userLevel + 1);
+        }
+      });
+    }
+
+    return Session.get("userLevel");
   }
 });
 
