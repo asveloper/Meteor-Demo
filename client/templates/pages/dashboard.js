@@ -18,7 +18,7 @@ Template.PagesDashboard.helpers({
     }
   },
   userLevel: function(){
-    return Counts.get('referral') + 1;
+    return Counts.get('referralCount') + 1;
   }
 });
 
